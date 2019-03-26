@@ -10,7 +10,7 @@ bot.on("inline_query", async (ctx) => {
   const search = ctx.update.inline_query.query
   console.log(search)
   const results = await RisibankClient.search(search)
-  const stickers = convertRisibankStickersToInlineResults(results.stickers).slice(0, 10)
+  const stickers = convertRisibankStickersToInlineResults(results.stickers).slice(0, 20)
   return ctx.answerInlineQuery(stickers)
 })
 bot.startPolling()
