@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+*.sublime-project
+*.sublime-workspace
+.idea
+*.komodoproject
+.env
+
+yarn-error.log
