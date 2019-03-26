@@ -2,7 +2,7 @@
   "name": "risibot-telegram",
   "version": "1.0.0",
   "description": "A risitas bot for telegram",
-  "main": "dist/app.js",
+  "main": "dist/index.js",
   "author": "Omar Jbara <omar.jbara2@gmail.com>",
   "license": "MIT",
   "devDependencies": {
