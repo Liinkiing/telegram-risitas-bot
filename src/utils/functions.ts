@@ -8,7 +8,7 @@ type InlineStickerResults = (InlineGifResult | InlinePhotoResult)[]
 export const convertRisibankStickerToGif = (sticker: RisibankSticker): InlineGifResult => {
   return {
     type: 'gif',
-    id: sticker.risibank_link,
+    id: String(sticker.id),
     gif_url: sticker.risibank_link,
     thumb_url: sticker.risibank_link,
   }
@@ -17,7 +17,7 @@ export const convertRisibankStickerToGif = (sticker: RisibankSticker): InlineGif
 export const convertRisibankStickerToPhoto = (sticker: RisibankSticker): InlinePhotoResult => {
   return {
     type: 'photo',
-    id: sticker.risibank_link,
+    id: String(sticker.id),
     photo_url: sticker.risibank_link,
     thumb_url: sticker.risibank_link,
   }
