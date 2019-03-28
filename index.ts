@@ -8,7 +8,6 @@ Dotenv.config()
 const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'Risitas'})
 bot.on("inline_query", async (ctx) => {
   const search = ctx.update.inline_query.query
-  console.log(search)
   const results = await RisibankClient.search(search)
   const stickers = convertRisibankStickersToInlineResults(results.stickers).slice(0, 15)
   return ctx.answerInlineQuery(stickers)
