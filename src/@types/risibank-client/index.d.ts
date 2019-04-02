@@ -17,6 +17,6 @@ export interface RisibankSearchSticker {
 export type RisibankSticker = RisibankSearchSticker
 
 export interface RisibankSearchRoot {
-  stickers: RisibankSticker[],
-  favs: unknown[]
+  stickers?: RisibankSticker[],
+  favs?: unknown[]
 }
