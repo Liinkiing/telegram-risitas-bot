@@ -1,3 +1,6 @@
 # telegram-risitas-bot
 
-Now included with a README™
+Run with Deno:
+```bash
+$ deno run --allow-net index.ts
+```
