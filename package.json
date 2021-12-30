@@ -9,7 +9,7 @@
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "build": "tsc --outFile ./dist/worker.js",
+    "build": "tsc --outFile ./dist/index.js",
     "dev": "nodemon"
   },
   "dependencies": {
