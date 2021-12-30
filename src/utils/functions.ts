@@ -1,5 +1,10 @@
 import {RisibankSticker} from "../@types/risibank-client";
-import {InlineQueryResultGif, InlineQueryResultCachedGif, InlineQueryResultPhoto, InlineQueryResultCachedPhoto} from "telegraf/typings/telegram-types";
+import {
+  InlineQueryResultGif,
+  InlineQueryResultCachedGif,
+  InlineQueryResultPhoto,
+  InlineQueryResultCachedPhoto
+} from "typegram";
 
 type InlineGifResult = InlineQueryResultCachedGif | InlineQueryResultGif
 type InlinePhotoResult = InlineQueryResultPhoto | InlineQueryResultCachedPhoto

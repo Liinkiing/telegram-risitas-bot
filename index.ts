@@ -1,12 +1,12 @@
 import * as Dotenv from 'dotenv'
-import Telegraf from 'telegraf'
+import { Telegraf } from 'telegraf'
 import {convertRisibankStickersToInlineResults} from "./src/utils/functions";
 import RisibankClient from "./src/services/RisibankClient";
 import { ExtraAnswerInlineQuery } from 'telegraf/typings/telegram-types';
 
 Dotenv.config()
 
-const bot = new Telegraf(process.env.BOT_TOKEN, {username: 'Risitas'})
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const DEFAULT_EXTRA_OPTIONS: ExtraAnswerInlineQuery = {
   cache_time: 0
@@ -27,8 +27,10 @@ bot.on("inline_query", async (ctx) => {
     console.log('returning no results cause of error')
     return ctx.answerInlineQuery([], DEFAULT_EXTRA_OPTIONS)
   }
-
 })
 
-bot.startPolling()
-console.log('bot is running')
+bot.launch()
+
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'))
+process.once('SIGTERM', () => bot.stop('SIGTERM'))
