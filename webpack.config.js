@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './index.ts',
@@ -20,7 +21,11 @@ module.exports = {
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
-  plugins: [],
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    })
+  ],
   module: {
     rules: [
       {
