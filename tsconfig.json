@@ -3,7 +3,7 @@
     "lib": [
       "webworker",
     ],
-    "module": "system",
+    "module": "amd",
     "experimentalDecorators": true,
     "esModuleInterop": false,
     "target": "es5",
