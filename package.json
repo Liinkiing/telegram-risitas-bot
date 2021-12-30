@@ -21,6 +21,7 @@
     "cfworker-middware-telegraf": "^1.0.0",
     "dotenv": "^10.0.0",
     "node-fetch": "^2.6.6",
+    "node-polyfill-webpack-plugin": "^1.1.4",
     "nodemon": "^2.0.15",
     "telegraf": "^4.5.2",
     "ts-loader": "^9.2.6",
