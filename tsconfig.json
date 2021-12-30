@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "lib": [
+      "webworker",
+    ],
+    "module": "system",
     "experimentalDecorators": true,
     "esModuleInterop": false,
     "target": "es5",

@@ -1,6 +1,7 @@
 import * as Dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
-import {convertRisibankStickersToInlineResults} from "./src/utils/functions";
+import { Application, Router } from '@cfworker/web'
+import { convertRisibankStickersToInlineResults } from "./src/utils/functions";
 import RisibankClient from "./src/services/RisibankClient";
 import { ExtraAnswerInlineQuery } from 'telegraf/typings/telegram-types';
 
@@ -29,8 +30,16 @@ bot.on("inline_query", async (ctx) => {
   }
 })
 
-bot.launch()
+const secretPath = `/telegraf/${bot.secretPathComponent()}`
 
-// Enable graceful stop
-process.once('SIGINT', () => bot.stop('SIGINT'))
-process.once('SIGTERM', () => bot.stop('SIGTERM'))
+bot.telegram.setWebhook(`https://issoubot.r00ferz.workers.dev${secretPath}`)
+
+const router = new Router();
+router.post(secretPath, async ({req, res}) => {
+  try {
+    await bot.handleUpdate(await req.body.json())
+  } finally {
+    res.status = 200
+  }
+});
+new Application().use(router.middleware).listen();
