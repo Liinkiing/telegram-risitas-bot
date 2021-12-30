@@ -7,6 +7,6 @@ account_id = "da17fb43eebd31597a932433ccee9b14"
 workers_dev = true
 
 [build]
-command = "npm install && npm run build"
+command = "npm install && npm run build:prod"
 [build.upload]
 format = "service-worker"

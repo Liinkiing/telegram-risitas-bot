@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "lib": [
-      "webworker",
+      "esnext"
     ],
-    "module": "amd",
+    "module": "commonjs",
     "experimentalDecorators": true,
-    "esModuleInterop": false,
-    "target": "es5",
+    "esModuleInterop": true,
+    "target": "esnext",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,
