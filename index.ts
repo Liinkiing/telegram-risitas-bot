@@ -1,6 +1,7 @@
 import * as Dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
 import express, { Request, Response } from 'express'
+import enforce from 'express-sslify'
 import { convertRisibankStickersToInlineResults } from "./src/utils/functions";
 import RisibankClient from "./src/services/RisibankClient";
 import { ExtraAnswerInlineQuery } from 'telegraf/typings/telegram-types';
@@ -36,6 +37,7 @@ bot.telegram.setWebhook(`https://app-3fe1e446-70e0-4f03-bf2c-1827797f5812.clever
 const app = express()
 app.get('/', (req: Request, res: Response) => res.status(404).send())
 app.use(bot.webhookCallback(secretPath))
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.listen(3000, () => {
   console.log("Risibank bot launched on port 3000!")
 })
