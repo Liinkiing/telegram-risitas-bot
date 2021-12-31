@@ -11,7 +11,10 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v2
-      - name: Publish
-        uses: cloudflare/wrangler-action@1.3.0
+      - run: git fetch --prune --unshallow
+      - uses: 47ng/actions-clever-cloud@v1
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+          appID: app_3fe1e446-70e0-4f03-bf2c-1827797f5812
+        env:
+          CLEVER_TOKEN: ${{ secrets.CLEVER_TOKEN }}
+          CLEVER_SECRET: ${{ secrets.CLEVER_SECRET }}

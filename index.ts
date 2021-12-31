@@ -1,6 +1,5 @@
 import * as Dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
-import { Application, Router } from '@cfworker/web'
 import { convertRisibankStickersToInlineResults } from "./src/utils/functions";
 import RisibankClient from "./src/services/RisibankClient";
 import { ExtraAnswerInlineQuery } from 'telegraf/typings/telegram-types';
@@ -30,16 +29,5 @@ bot.on("inline_query", async (ctx) => {
   }
 })
 
-const secretPath = `/telegraf/${bot.secretPathComponent()}`
-
-bot.telegram.setWebhook(`https://issoubot.r00ferz.workers.dev${secretPath}`)
-
-const router = new Router();
-router.post(secretPath, async ({req, res}) => {
-  try {
-    await bot.handleUpdate(await req.body.json())
-  } finally {
-    res.status = 200
-  }
-});
-new Application().use(router.middleware).listen();
+bot.launch()
+console.log("Risibank bot launched!")

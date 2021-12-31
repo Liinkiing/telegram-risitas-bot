@@ -2,7 +2,6 @@
   "compilerOptions": {
     "lib": [
       "esnext",
-      "webworker"
     ],
     "module": "commonjs",
     "experimentalDecorators": true,
