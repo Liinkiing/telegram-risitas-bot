@@ -38,6 +38,6 @@ const app = express()
 app.get('/', (req: Request, res: Response) => res.status(404).send())
 app.use(bot.webhookCallback(secretPath))
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
-app.listen(3000, () => {
-  console.log("Risibank bot launched on port 3000!")
+app.listen(8080, () => {
+  console.log("Risibank bot launched on port 8080!")
 })
