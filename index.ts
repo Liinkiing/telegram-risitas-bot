@@ -31,7 +31,7 @@ bot.on("inline_query", async (ctx) => {
 })
 
 const secretPath = `/telegraf/${bot.secretPathComponent()}`
-bot.telegram.setWebhook(`https://app-3fe1e446-70e0-4f03-bf2c-1827797f5812.cleverapps.io/${secretPath}`)
+bot.telegram.setWebhook(`https://app-3fe1e446-70e0-4f03-bf2c-1827797f5812.cleverapps.io${secretPath}`)
 
 const app = express()
 app.get('/', (req: Request, res: Response) => res.status(404).send())
