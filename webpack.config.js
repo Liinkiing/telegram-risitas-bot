@@ -3,12 +3,13 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: './index.ts',
+  target: "webworker",
   output: {
     filename: 'index.js',
     path: path.join(__dirname, 'dist'),
   },
   devtool: 'cheap-module-source-map',
-  mode: 'production',
+  mode: 'development',
   resolve: {
     fallback: {
       "fs": false,
@@ -17,7 +18,9 @@ module.exports = {
       "https": false,
       "http": false,
       "crypto": false,
-      "os": false
+      "os": false,
+      "url": false,
+      "util": false
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
