@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",
-    "start": "tsc && node dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
