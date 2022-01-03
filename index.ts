@@ -31,13 +31,17 @@ bot.on("inline_query", async (ctx) => {
   }
 })
 
+const webhookUrl = process.env.WEBHOOK_URL || 'http://localhost'
+
 const secretPath = `/telegraf/${bot.secretPathComponent()}`
-bot.telegram.setWebhook(`https://app-3fe1e446-70e0-4f03-bf2c-1827797f5812.cleverapps.io${secretPath}`)
+bot.telegram.setWebhook(`${webhookUrl}${secretPath}`)
+
+const hostname = process.env.NODE_ENV === 'production' ? '0.0.0.0': 'localhost'
 
 const app = express()
 app.get('/', (req: Request, res: Response) => res.status(404).send())
 app.use(bot.webhookCallback(secretPath))
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
-app.listen(8080, '0.0.0.0', () => {
+app.listen(8080, hostname, () => {
   console.log("Risibank bot launched on port 8080!")
 })
