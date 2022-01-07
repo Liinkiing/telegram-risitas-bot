@@ -39,7 +39,9 @@ bot.telegram.setWebhook(`${webhookUrl}${secretPath}`)
 const hostname = process.env.NODE_ENV === 'production' ? '0.0.0.0': 'localhost'
 
 const app = express()
-app.get('/', (req: Request, res: Response) => res.status(404).send())
+app.get('/', (req: Request, res: Response) => {
+  res.status(404).send()
+})
 app.use(bot.webhookCallback(secretPath))
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 app.listen(8080, hostname, () => {
