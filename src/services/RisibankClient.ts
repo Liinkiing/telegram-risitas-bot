@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import {RisibankSearchRoot} from "../@types/risibank-client";
 
-const BASE_URL = 'https://api.risibank.fr/api/v0'
+const BASE_URL = 'https://risibank.fr/api/v0'
 
 export default new class RisibankClient {
 
